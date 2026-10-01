@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name=""viewport"content=""width=device-width, initial-scal="1.0">
+    <title>MyProfile</title>
+</head>
+
+<body>
+    
+<header>
+    <h1>MyProfile</h1>
+    <nav>
+
+        <a href="about">About Me</a>  
+            <a href="skills">Skills</a> 
+            <a href="timeline">Timeline</a>  
+            <a href="contact">Contact</a>
+    </nav>
+</header>
+
+<main>
+    
+<article id="about">
+    <h2>About Me</h2>
+    <figure>
+        <img src="images/images.jpeg" alt="Photo of Girl" width="180"></img>
+        <figcaption>That's me!</figcaption>
+      </figure>
+    <p>I am a student of 5thsemester BS-CS studying in Qarshi University.
+        <br>I am studying subjects like WebTechnology and Software Engineering</br>
+    </p>
+</article>
+<section id="Myskills">
+    <h2>MySkills</h2>
+    
+     <ul>
+            <li>Codding</li>
+            <li>Managing</li>
+            <li>Planning</li>
+            <li>GitRepositories</li>
+            <li>HTML Layout</li>
+     </ul>
+     </section>
+<section id=""timeline">           
+        <h2>MyTimeline</h2>
+                    <ol>
+                        <li>CompletedLab01</li>
+                        <li>Achieved SalesTarget</li>
+                        <li>FirstTimeWriteHTMLCode</li>
+                    </ol>
+     </section>
+    </main>
+    <section id="media">
+        <h2>A Short Video</h2>
+        <video controls width="480">
+          <source src="15247894_1080_1920_30fps.mp4" type="video/webm">
+          <source src="15247894_1080_1920_30fps.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+</section>
+<p><strong>Transcript summary:</strong>Just a trial video for practice based on nature.</p>
+
+<aside>
+     <h3>FunFact</h3>
+     <p>I am cool until i meet the deadlines</p>
+</aside>
+ 
+<blockquote>
+    <p>"Whoever in the world keeps itself with era is the great"</p>
+  </blockquote>
+
+ <section id="contact">
+    <h2>Contact Me</h2>
+    <form id="contact-form">
+      <fieldset>
+        <legend>Send me a message</legend>
+      
+        
+    </form>
+  </section>
+<p><
+  label for="name"></label>
+<input type="text" id="name" name="name" required>
+ </p>
+ 
+ <p>
+<label for="email">Email</label>
+<input type="email" id="email" name="email" required>
+</p>
+
+<p>
+<label for="topic">Topic</label>
+<select id="topic" name="topic">
+  <option value="general">General</option>
+  <option value="feedback">Feedback</option>
+  <option value="bug">Report a Bug</option>
+</select>
+</p>
+
+<fieldset>
+<p>Preferred reply method:</p>
+<label><input type="radio" name="reply" value="email" checked> Email</label>
+<label><input type="radio" name="reply" value="phone"> Phone</label>
+</fieldset>
+<p>
+
+<label><input type="checkbox" id="subscribe" name="subscribe"> Subscribe to updates</label>
+</p>
+
+<p>
+<label for="callback-date">Preferred callback date</label>
+<input type="date" id="callback-date" name="callback-date">
+</p>
+
+<p>
+<label for="urgency">Urgency (1 = whenever, 10 = right now)</label>
+<input type="range" id="urgency" name="urgency" min="1" max="10" value="5">
+</p>
+
+<p>
+<label for="message">Message</label>
+<textarea id="message" name="message" rows="4" required minlength="10"></textarea>
+</p>
+
+<button type="submit">Send</button>
+      </fieldset>
+    </form>
+    </section>
+    
+
+<script src="script.js"></script>
+
+
+</body>
+const form = document.getElementById("contact-form");
+const nameInput = document.getElementById("name");
+const topicSelect = document.getElementById("topic");
+
+form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    localStorage.setItem("visitorName", nameInput.value);
+    localStorage.setItem("visitorTopic", topicSelect.value);
+    alert("Thanks, " + nameInput.value + "! Saved locally.");
+  });
+
+  window.addEventListener("DOMContentLoaded", function () {
+    const savedName = localStorage.getItem("visitorName");
+    const savedTopic = localStorage.getItem("visitorTopic");
+    if (savedName) {
+      nameInput.value = savedName;
+    }
+    if (savedTopic) {
+      topicSelect.value = savedTopic;
+    }
+  });
+  <button id="clear-btn" type="button">Clear Saved Data</button>
+  document.getElementById("clear-btn").addEventListener("click", function () {
+    localStorage.removeItem("visitorName");
+    localStorage.removeItem("visitorTopic");
+    form.reset();
+    alert("Saved data cleared.");
+  });
+  
+
+<footer></footer>
+</html>
+
